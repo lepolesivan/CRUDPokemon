@@ -5,3 +5,14 @@ body{
     display: grid;
     grid-template-rows: auto 1fr auto;
 }
+main{
+    display: grid;
+    grid-template-columns: auto 1fr 400px;
+}
+.border{
+    padding: 0;
+    object-fit: fill;
+}
+.display{
+    padding: 0;
+}
