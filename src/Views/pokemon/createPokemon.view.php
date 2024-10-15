@@ -2,9 +2,7 @@
 require_once(__DIR__ . '/../partials/head.php');
 ?>
 <section>
-    <div class="container-fluid display">
-        <img class="container-fluid border" src="/public/img/sacha.webp" alt="un homme avec un pokemon">
-    </div>
+    <div class="container-fluid images"></div>
 </section>
 
 <section>
@@ -32,7 +30,7 @@ require_once(__DIR__ . '/../partials/head.php');
             <?php
             } ?>
         <label for="description">Description</label>
-        <textarea name="createPokemon"></textarea>
+        <textarea name="description"></textarea>
         <?php if (isset($this->arrayError['description'])) {
             ?>
                 <p class='text-danger'><?= $this->arrayError['description'] ?></p>
@@ -43,9 +41,7 @@ require_once(__DIR__ . '/../partials/head.php');
 </section>
 
 <section>
-    <div class="container-fluid display">
-        <img class="container-fluid border image" src="/public/img/james.jpg" alt="un homme">
-    </div>
+    <div class="container-fluid image"></div>
 </section>
 
 <?php

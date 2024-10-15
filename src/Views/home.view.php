@@ -2,17 +2,31 @@
 require_once(__DIR__ . '/partials/head.php');
 ?>
 <section>
-    <div class="container-fluid display">
-        <img class="container-fluid border" src="/public/img/sacha.webp" alt="un homme avec un pokemon">
-    </div>
+    <div class="container-fluid images"></div>
 </section>
+
 <section>
-    <h1>Pokemon</h1>
+    <h1 style="text-align: center;">Pokemon</h1>
+    <?php
+    foreach($afficher as $pokemon){
+    ?>
+        <div class="d-flex justify-content-center mb-3">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Nom : <?= $pokemon->getName() ?></h5>
+                    <p class="card-text">Description : <?= $pokemon->geDescrip() ?></p>
+                    <p class="card-text">Type : <?= $pokemon->getType() ?></p>
+                    <p class="card-text">Niveau : <?= $pokemon->getLevel() ?></p>
+                </div>
+            </div>
+        </div>
+    <?php
+    }
+    ?>
 </section>
+
 <section>
-    <div class="container-fluid display">
-        <img class="container-fluid border image" src="/public/img/james.jpg" alt="un homme">
-    </div>
+    <div class="container-fluid image"></div>
 </section>
     
 

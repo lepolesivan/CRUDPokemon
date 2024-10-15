@@ -7,11 +7,16 @@ body{
 }
 main{
     display: grid;
-    grid-template-columns: auto 1fr 400px;
+    grid-template-columns: 400px 1fr 400px;
 }
-.border{
+
+.images{
     padding: 0;
+    height: 100%;
+    background: url('/public/img/sacha.webp') center/cover;
 }
-.display{
+.image{
     padding: 0;
+    height: 100%;
+    background: url('/public/img/james.jpg') center/cover;
 }
