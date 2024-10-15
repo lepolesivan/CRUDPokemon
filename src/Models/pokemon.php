@@ -1,26 +1,28 @@
 <?php
 namespace app\Models;
 
+use Config\Database;
+
     class Pokemon
     {
         private ?string $id;
-        private ?string $nom;
+        private ?string $name;
         private ?string $type;
         private ?int $level;
         private ?string $description;
 
-        public function __construct(?string $id, ?string $nom, ?string $type, ?int $level, ?string $description)
+        public function __construct(?string $id, ?string $name, ?string $type, ?int $level, ?string $description)
         {
             $this->id = $id;
-            $this->nom = $nom;
+            $this->name = $name;
             $this->type = $type;
             $this->level = $level;
             $this->description = $description;
         }
 
-        public function setName(?string $nom) :static
+        public function setName(?string $name) :static
         { 
-            $this->nom = $nom;
+            $this->name = $name;
             return $this;
         }
         public function setType(?string $type) :static
@@ -46,7 +48,7 @@ namespace app\Models;
 
         public function getName() : ?string
         {
-             return $this->nom;
+             return $this->name;
         }
 
         public function getType() : ?string
@@ -63,4 +65,31 @@ namespace app\Models;
              return $this->description;
         }
         
+        public function save()
+        {
+            $mango = Database::getConnection();
+            
+            $dataBase = "pokemon_db";
+            $collection = "pokemons";
+
+            $document = [
+                "name" => "$this->name",
+                "type" => "$this->type",
+                "level" => "$this->level",
+                "description" => "$this->description"
+            ];
+
+                //creation d'un objet
+            $bulk = new BulkWrite();
+            //insere le document dans la base
+            $bulk->insert($data);
+
+            try {
+                //Executer la requete
+                $mongo->executeBulkWrite($dataBase . "." . $collection, $bulk);
+                return true;
+            } catch (Exception $e){
+                return false;
+            }
+        }
     }

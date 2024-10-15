@@ -25,46 +25,29 @@ abstract class AbstractController
 
     public function checkFormat($nameInput, $value)
     {
-        $regexName = '/^[a-zA-Zà-üÀ-Ü -]{2,255}$/';
-        $regexPassword = '/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/';
-        $regexTitle = '/^[a-zA-Zà-üÀ-Ü0-9 #?!@$%^,.;&*-]{4,255}$/';
-        $regexContent = '/^[a-zA-Zà-üÀ-Ü0-9 #?!@$%^,.;&*-]{4,}$/';
-        $regexRole = '/^[12]$/';
+        $regexString = '/^[a-zA-Zà-üÀ-Ü -]{2,255}$/';
+        $regexDescription = '/^[a-zA-Zà-üÀ-Ü0-9 #?!@$%^,.;&*-]{4,}$/';
+        $regexLevel = '/^[0-9]{1,}$/';
 
         switch ($nameInput) {
-            case 'pseudo':
-                if (!preg_match($regexName, $value)) {
-                    $this->arrayError['pseudo'] = 'Merci de renseigner un pseudo correcte!';
+            case 'name':
+                if (!preg_match($regexString, $value)) {
+                    $this->arrayError['name'] = 'Merci de renseigner un nom correcte!';
                 }
                 break;
-            case 'mail':
-                if (!filter_var($value, FILTER_VALIDATE_EMAIL)) {
-                    $this->arrayError['mail'] = 'Merci de renseigner un e-mail correcte!';
+            case 'type':
+                if (!preg_match($regexString, $value)) {
+                    $this->arrayError['type'] = 'Merci de renseigner un type correcte!';
                 }
                 break;
-            case 'password':
-                if (!preg_match($regexPassword, $value)) {
-                    $this->arrayError['password'] = 'Merci de donné un mot de passe avec au minimum : 8 caractères, 1 majuscule, 1 miniscule, 1 caractère spécial!';
-                }
-                break;
-            case 'title':
-                if (!preg_match($regexTitle, $value)) {
-                    $this->arrayError['title'] = 'Merci de renseigner un titre correcte!';
+            case 'level':
+                if (!preg_match($regexLevel, $value)) {
+                    $this->arrayError['level'] = 'Merci de renseigner un niveau correcte!';
                 }
                 break;
             case 'description':
-                if (!preg_match($regexTitle, $value)) {
+                if (!preg_match($regexDescription, $value)) {
                     $this->arrayError['description'] = 'Merci de renseigner une description correcte!';
-                }
-                break;
-            case 'content':
-                if (!preg_match($regexContent, $value)) {
-                    $this->arrayError['content'] = 'Merci de renseigner un contenu correcte!';
-                }
-                break;
-            case 'idRole':
-                if (!preg_match($regexRole, $value)) {
-                    $this->arrayError['idRole'] = 'Merci de renseigner un role correcte!';
                 }
                 break;
         }

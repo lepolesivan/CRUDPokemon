@@ -25,7 +25,7 @@
             <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="/">Home</a>
+                        <a class="nav-link" href="/createPokemon">Ajouter votre pokemon</a>
                     </li>
                 </ul>
             </div>
