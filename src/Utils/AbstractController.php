@@ -26,7 +26,7 @@ abstract class AbstractController
     public function checkFormat($nameInput, $value)
     {
         $regexString = '/^[a-zA-Zà-üÀ-Ü -]{2,255}$/';
-        $regexDescription = '/^[a-zA-Zà-üÀ-Ü0-9 #?!@$%^,.;&*-]{4,}$/';
+        $regexDescription = "/^[a-zA-Zà-üÀ-Ü0-9 #?!@$%^',œ.;&*-]{4,}$/";
         $regexLevel = '/^[0-9]{1,}$/';
 
         switch ($nameInput) {

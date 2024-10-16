@@ -44,6 +44,17 @@ use App\Models\Pokemon;
             require_once(__DIR__ . '/../Views/pokemon/createPokemon.view.php');
         }
 
+        public function detail()
+        {
+            if($_GET['id']){
+                $id = $_GET['id'];
+                $pokemons = new Pokemon($id, null, null, null, null);
+                $afficher = $pokemons->getByID();
+            }
+            
+            require_once(__DIR__ . '/../Views/pokemon/detail.view.php');
+        }
+
         public function modify()
         {
             if($_GET['id']){
@@ -64,6 +75,17 @@ use App\Models\Pokemon;
                     $this->redirectToRoute('/');
                 }
             }
-            require_once(__DIR__ . '/../Views/pokemon/pokemon.view.php');
+            require_once(__DIR__ . '/../Views/pokemon/modify.view.php');
+        }
+
+        public function deletePokemon()
+        {
+            if($_POST['id']){
+                $id = $_POST['id'];
+
+                $delete = new Pokemon($id, null, null, null, null);
+                $delete->delete();
+                $this->redirectToRoute('/');
+            }
         }
     }
