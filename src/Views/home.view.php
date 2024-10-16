@@ -1,11 +1,12 @@
 <?php
 require_once(__DIR__ . '/partials/head.php');
 ?>
+<main>
 <section>
     <div class="container-fluid images"></div>
 </section>
 
-<section>
+<section class="bg-black">
     <h1 style="text-align: center;">Pokemon</h1>
     <?php
     foreach($afficher as $pokemon){
@@ -17,8 +18,12 @@ require_once(__DIR__ . '/partials/head.php');
                     <p class="card-text">Description : <?= $pokemon->getDescrip() ?></p>
                     <p class="card-text">Type : <?= $pokemon->getType() ?></p>
                     <p class="card-text">Niveau : <?= $pokemon->getLevel() ?></p>
-                    <a href="/supprimer" class="btn btn-danger">Supprimer</a>
-                    <a href="/modifier?id=<?= $pokemon->getId() ?>" class="btn btn-primary">Modifier</a>
+                    <a href="/detail?id=<?= $pokemon->getId() ?>" class="btn m-1 btn-warning">Détaille</a>
+                    <a href="/modifier?id=<?= $pokemon->getId() ?>" class="btn m-1 btn-primary">Modifier</a>
+                    <form action="/deletePokemon" method="POST">
+                        <input type="hidden" name="id" id="id" value="<?= $pokemon->getId() ?>">
+                        <button type="submit" class="btn btn-danger m-1">Suprimer le Pokemon</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -31,7 +36,7 @@ require_once(__DIR__ . '/partials/head.php');
     <div class="container-fluid image"></div>
 </section>
     
-
+</main>
 <?php
 require_once(__DIR__ . '/partials/footer.php');
 ?>

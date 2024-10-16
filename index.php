@@ -14,6 +14,8 @@ $router->addRoute('/register', 'RegisterController', 'index');
 $router->addRoute('/login', 'LoginController', 'index');
 $router->addRoute('/logout', 'LogoutController', 'logout');
 $router->addRoute('/createPokemon', 'PokemonController', 'addPokemon');
+$router->addRoute('/detail', 'PokemonController', 'detail');
 $router->addRoute('/modifier', 'PokemonController', 'modify');
+$router->addRoute('/deletePokemon', 'PokemonController', 'deletePokemon');
 
 $router->handleRequest();

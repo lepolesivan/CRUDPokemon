@@ -1,6 +1,7 @@
 html, body{
     height: 100%;
 }
+
 body{
     display: grid;
     grid-template-rows: auto 1fr auto;
@@ -19,4 +20,93 @@ main{
     padding: 0;
     height: 100%;
     background: url('/public/img/james.jpg') center/cover;
+}
+
+
+
+/* Formulaire */
+
+html::-webkit-scrollbar {
+    width: 5%;
+    border-radius: 30px;
+    color: blue;
+}
+
+.bg_fondFormulaire {
+    background: url('/public/img/pngtree-pokemon-artwork-by-the-flint-eclectix-image_2679721.jpg') center/cover;
+    height: 100vh;
+}
+
+.formulaire {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    /* margin: auto; */
+    position: absolute;
+    left: 40%;
+    top: 25%;
+}
+
+.formulaire h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+    font-weight: bold;
+}
+
+input[type="text"], 
+input[type="number"], 
+select, 
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+input[type="text"]:focus, 
+input[type="number"]:focus, 
+select:focus, 
+textarea:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* formulaire modifier*/
+
+.bg_pokemonR{
+    background: url('/public/img/E9JivUqXsAMYstp.jpg') center/cover;
+    height: 100vh;
 }
