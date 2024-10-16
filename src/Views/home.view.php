@@ -14,9 +14,11 @@ require_once(__DIR__ . '/partials/head.php');
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title">Nom : <?= $pokemon->getName() ?></h5>
-                    <p class="card-text">Description : <?= $pokemon->geDescrip() ?></p>
+                    <p class="card-text">Description : <?= $pokemon->getDescrip() ?></p>
                     <p class="card-text">Type : <?= $pokemon->getType() ?></p>
                     <p class="card-text">Niveau : <?= $pokemon->getLevel() ?></p>
+                    <a href="/supprimer" class="btn btn-danger">Supprimer</a>
+                    <a href="/modifier?id=<?= $pokemon->getId() ?>" class="btn btn-primary">Modifier</a>
                 </div>
             </div>
         </div>

@@ -63,7 +63,7 @@ use MongoDB\Driver\Query;
         {
              return $this->level;
         }
-        public function geDescrip() : ?string
+        public function getDescrip() : ?string
         {
              return $this->description;
         }

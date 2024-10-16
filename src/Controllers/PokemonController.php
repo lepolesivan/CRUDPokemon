@@ -43,4 +43,27 @@ use App\Models\Pokemon;
 
             require_once(__DIR__ . '/../Views/pokemon/createPokemon.view.php');
         }
+
+        public function modify()
+        {
+            if($_GET['id']){
+                $id = $_GET['id'];
+
+                $pokemons = new Pokemon($id, null, null, null, null);
+                $pokemon = $pokemons->getById();
+
+                if($_POST){
+                    $name = $_POST['name'];
+                    $type = $_POST['type'];
+                    $level = $_POST['level'];
+                    $description = $_POST['description'];
+
+                    $update = new Pokemon($id, $name, $type, $level, $description);
+                    $update->update();
+
+                    $this->redirectToRoute('/');
+                }
+            }
+            require_once(__DIR__ . '/../Views/pokemon/pokemon.view.php');
+        }
     }
